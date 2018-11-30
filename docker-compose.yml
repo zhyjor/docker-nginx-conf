@@ -1,0 +1,19 @@
+version: '2.0'
+services:
+  mynginx:
+   image: nginx:1.13
+   restart: always
+   ports:
+   - 80:80
+   - 443:443
+   volumes:
+   - ./conf.d:/etc/nginx/conf.d
+   - ./homepage:/usr/share/nginx/html/homepage
+   
+  koaserver:
+   image: zhyjor/koa-static-source
+   restart: always
+   ports:
+   - 9000:3000
+   volumes:
+   - /root/static:/app/app/public
