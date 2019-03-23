@@ -17,3 +17,9 @@ services:
    - 9000:3000
    volumes:
    - /root/static:/app/app/public
+   
+   webotserver:
+     image: zhyjor/wechat_bot
+     restart: always
+     ports:
+     - 9001:3000
